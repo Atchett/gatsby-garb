@@ -13,7 +13,7 @@ import Header from "./header"
 import "./layout.css"
 
 const getSiteMetadata = graphql`
-  query SiteTitleQuery {
+  query {
     site {
       siteMetadata {
         title
