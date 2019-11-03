@@ -4,7 +4,7 @@ import { graphql, Link } from "gatsby"
 import Layout from "../components/layout"
 
 export default ({ data, pageContext }) => {
-  const { currentPage, isFirstPage, isLastPage } = pageContext
+  const { currentPage, isFirstPage, isLastPage, totalPages } = pageContext
   const nextPage = `/blog/${String(currentPage + 1)}`
   const prevPage =
     currentPage - 1 === 1 ? "/blog" : `/blog/${String(currentPage - 1)}`
@@ -28,12 +28,25 @@ export default ({ data, pageContext }) => {
           </div>
         ))}
         {/* Pagination links */}
-        <div>
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-around",
+            maxWidth: 300,
+            margin: "0 auto",
+          }}
+        >
           {!isFirstPage && (
             <Link to={prevPage} rel="prev">
               Prev Page
             </Link>
           )}
+          {Array.from({ length: totalPages }, (_, index) => (
+            <Link key={index} to={`/blog/${index === 0 ? "" : index + 1}`}>
+              {index + 1}
+            </Link>
+          ))}
           {!isLastPage && (
             <Link to={nextPage} rel="next">
               Next Page
@@ -47,7 +60,11 @@ export default ({ data, pageContext }) => {
 
 export const query = graphql`
   query($skip: Int!, $limit: Int!) {
-    allMarkdownRemark(skip: $skip, limit: $limit) {
+    allMarkdownRemark(
+      skip: $skip
+      limit: $limit
+      sort: { fields: [frontmatter___date], order: DESC }
+    ) {
       totalCount
       edges {
         node {
@@ -55,7 +72,7 @@ export const query = graphql`
             slug
           }
           frontmatter {
-            date
+            date(formatString: "dddd, MMMM Do YYYY")
             title
           }
           excerpt
