@@ -51,7 +51,7 @@ abbr[title] {
   border-bottom: none;
   text-decoration: underline;
   -webkit-text-decoration: underline dotted;
-          text-decoration: underline dotted;
+  text-decoration: underline dotted;
 }
 b,
 strong {
@@ -103,7 +103,7 @@ figure {
 }
 hr {
   -webkit-box-sizing: content-box;
-          box-sizing: content-box;
+  box-sizing: content-box;
   height: 0;
   overflow: visible;
 }
@@ -152,7 +152,7 @@ fieldset {
 }
 legend {
   -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   color: inherit;
   display: table;
   max-width: 100%;
@@ -165,7 +165,7 @@ textarea {
 [type="checkbox"],
 [type="radio"] {
   -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   padding: 0;
 }
 [type="number"]::-webkit-inner-spin-button,
@@ -191,20 +191,20 @@ textarea {
 html {
   font: 112.5%/1.45em georgia, serif;
   -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   overflow-y: scroll;
 }
 * {
   -webkit-box-sizing: inherit;
-          box-sizing: inherit;
+  box-sizing: inherit;
 }
 *:before {
   -webkit-box-sizing: inherit;
-          box-sizing: inherit;
+  box-sizing: inherit;
 }
 *:after {
   -webkit-box-sizing: inherit;
-          box-sizing: inherit;
+  box-sizing: inherit;
 }
 body {
   color: hsla(0, 0%, 0%, 0.8);
@@ -212,7 +212,7 @@ body {
   font-weight: normal;
   word-wrap: break-word;
   -webkit-font-kerning: normal;
-          font-kerning: normal;
+  font-kerning: normal;
   -ms-font-feature-settings: "kern", "liga", "clig", "calt";
   -webkit-font-feature-settings: "kern", "liga", "clig", "calt";
   font-feature-settings: "kern", "liga", "clig", "calt";
@@ -644,4 +644,24 @@ pre tt:after {
 .navlink {
   color: white;
   text-decoration: none;
+}
+
+/* Netlify Identity */
+
+.netlify-identity-menu {
+  list-style: none;
+  color: white;
+  margin: 0;
+}
+
+.netlify-identity-signup {
+  color: white;
+}
+
+.netlify-identity-login {
+  color: white;
+}
+
+.netlify-identity-logout {
+  color: white;
 }
