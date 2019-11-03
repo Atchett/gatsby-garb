@@ -3,8 +3,8 @@ import Layout from "../components/layout"
 import { Link, graphql, StaticQuery } from "gatsby"
 
 const getImageData = graphql`
-  query ImageQuery {
-    allFile {
+  query {
+    allFile(filter: { sourceInstanceName: { eq: "images" } }) {
       edges {
         node {
           birthTime
